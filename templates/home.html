@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="welcome-box">
+    <h1>Добро пожаловать в Личный Дневник!</h1>
+    <p>Это безопасное пространство для ваших мыслей, идей и воспоминаний.</p>
+    <div class="actions">
+        <a href="{{ url_for('login') }}" class="btn">Войти в аккаунт</a>
+        <a href="{{ url_for('register') }}" class="btn btn-secondary">Зарегистрироваться</a>
+    </div>
+</div>
+{% endblock %}

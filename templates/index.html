@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои Записи{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h2>Ваши воспоминания</h2>
+</div>
+
+<div class="cards-grid">
+    {% for card in cards %}
+        <div class="diary-card">
+            <h3>{{ card.title }}</h3>
+            <h4>{{ card.subtitle }}</h4>
+            <p>{{ card.text[:100] }}{% if card.text|length > 100 %}...{% endif %}</p>
+            
+            <div class="card-actions">
+                <a href="{{ url_for('card', id=card.id) }}" class="btn-read">Читать полностью</a>
+
+                <div class="action-group">
+                <a href="{{ url_for('edit_card', id=card.id) }}" class="btn-edit-single">Изменить</a>
+                <a href="{{ url_for('delete_card', id=card.id) }}" class="btn-delete-single" onclick="return confirm('Вы уверены, что хотите удалить эту запись?');">Удалить</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>У вас пока нет ни одной записи.</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

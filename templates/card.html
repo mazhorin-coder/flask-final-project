@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ card.title }}{% endblock %}
+
+{% block content %}
+<div class="full-card">
+    <a href="{{ url_for('index') }}" class="back-link">Вернуться к списку</a>
+    <article>
+        <h1>{{ card.title }}</h1>
+        <span class="subtitle-badge">{{ card.subtitle }}</span>
+        <hr>
+        <div class="card-content">
+            {{ card.text }}
+        </div>
+    </article>
+</div>
+{% endblock %}
